@@ -1,11 +1,8 @@
 # webpack-easy-config
 
 [![Unix Build status](https://img.shields.io/travis/MoOx/webpack-easy-config/master.svg?branch=master&label=unix%20build)](https://travis-ci.org/MoOx/webpack-easy-config)
-
 [![Code Coverage](https://img.shields.io/coveralls/MoOx/webpack-easy-config/master.svg)](https://coveralls.io/github/MoOx/webpack-easy-config)
-
 [![Version](https://img.shields.io/npm/v/webpack-easy-config.svg)](https://github.com/MoOx/webpack-easy-config/blob/master/CHANGELOG.md)
-
 [![Support on gitter chat](https://img.shields.io/badge/support-gitter%20chat-E40255.svg)](https://gitter.im/MoOx/webpack-easy-config)
 
 > Webpack config, made easy
