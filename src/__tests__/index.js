@@ -84,3 +84,45 @@ test("it should be able to extract css", (t) => {
 
   t.ok(config.plugins[0] instanceof ExtractTextPlugin)
 })
+
+test("it should generate include option for loaders", (t) => {
+  const config = webpackEasyConfig({
+    include: "some/path",
+    loaders: {
+      "css": "some-loader",
+    },
+  })
+
+  t.is(
+    config.module.loaders[0].include,
+    process.cwd() + "/some/path"
+  )
+})
+
+test("it should generate absolute include option for loaders", (t) => {
+  const config = webpackEasyConfig({
+    include: "/some/path",
+    loaders: {
+      "css": "some-loader",
+    },
+  })
+
+  t.is(
+    config.module.loaders[0].include,
+    "/some/path"
+  )
+})
+
+test("it should generate array of include option for loaders", (t) => {
+  const config = webpackEasyConfig({
+    include: [ "some/path", "/some/other/path" ],
+    loaders: {
+      "css": "some-loader",
+    },
+  })
+
+  t.same(
+    config.module.loaders[0].include,
+    [ process.cwd() + "/some/path", "/some/other/path" ]
+  )
+})

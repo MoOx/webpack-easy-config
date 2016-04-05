@@ -29,6 +29,9 @@ $ npm install webpack-easy-config
 import webpackEasyConfig from "webpack-easy-config"
 
 export default webpackEasyConfig({
+  include: "src", // relative to process.cwd(), or can be absolute
+  // can also be an array like
+  // include: [ "src", "web_modules" ],
   loaders: {
     css: {
       "postcss-loader": true,
@@ -70,7 +73,8 @@ export default {
             "?modules" +
             "&localIdentName=[path][name]--[local]--[hash:base64:5]" +
           "!postcss-loader!"
-        )
+        ),
+        include: `/absolute/path/to/src`,
       },
       {
         test: /\.(html|ico|jpe?g|png|gif)$/,
@@ -78,14 +82,17 @@ export default {
           "file-loader" +
           "?name=[path][name].[ext]" +
           "&context=src",
+        include: `/absolute/path/to/src`,
       },
       {
         test: /\.svg$/,
         loader: "raw-loader!svgo-loader",
+        include: `/absolute/path/to/src`,
       },
       {
         test: /\.(woff2|woff|ttf|eot)$/,
         loader: "file-loader",
+        include: `/absolute/path/to/src`,
       },
     ],
   },

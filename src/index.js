@@ -1,5 +1,6 @@
 /* @flow */
 import ExtractTextPlugin from "extract-text-webpack-plugin"
+import path from "path"
 
 type EasyLoaderObjectOptions = {
   [name: string]: (string | Object),
@@ -11,10 +12,20 @@ type Loader = Object
 export default (easyConfig: Object): Object => {
   const config: Object= { ...easyConfig }
   let loaders: Array<Loader> = []
+  const cwd = process.cwd()
+  const include = !config.include
+    ? undefined
+    : Array.isArray(config.include)
+      ? config.include.map((p) => path.resolve(cwd, p))
+      : path.resolve(cwd, config.include)
 
   // loop on keys to respect initial order
   Object.keys(config).forEach((key: string) => {
     switch (key) {
+
+    case "include":
+      // TODO validate path?
+      break
 
     case "loaders":
       Object.keys(config.loaders).forEach((ext: string) => {
@@ -84,6 +95,7 @@ export default (easyConfig: Object): Object => {
           loader,
           // for later usage
           _ext: ext,
+          include: include,
         })
       })
       delete config.loaders
