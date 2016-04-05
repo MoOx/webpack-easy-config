@@ -42,7 +42,7 @@ export default webpackEasyConfig({
       "file-loader": {
         name: "[path][name].[ext]",
         context: "src",
-      }
+      },
     },
     "svg": [ "svgo-loader", "raw-loader" ],
     "woff2|woff|ttf|eot": "file-loader",
@@ -51,7 +51,7 @@ export default webpackEasyConfig({
     css: {
       filename: "[name].[hash].css",
       disable: process.argv.indexOf("--dev") > -1,
-    }
+    },
   },
 })
 ```
