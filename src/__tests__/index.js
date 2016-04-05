@@ -13,7 +13,7 @@ test("it should transform string loader", (t) => {
 
   t.is(
     config.module.loaders[0].test.toString(),
-    "/\.(ext1|ext2)$/"
+    "/\\.(ext1|ext2)$/"
   )
   t.is(
     config.module.loaders[0].loader,
@@ -30,7 +30,7 @@ test("it should transform array of loaders", (t) => {
 
   t.is(
     config.module.loaders[0].test.toString(),
-    "/\.ext$/"
+    "/\\.ext$/"
   )
   t.is(
     config.module.loaders[0].loader,
@@ -54,7 +54,7 @@ test("it should transform object of loaders", (t) => {
 
   t.is(
     config.module.loaders[0].test.toString(),
-    "/\.css$/"
+    "/\\.css$/"
   )
   t.is(
     config.module.loaders[0].loader,

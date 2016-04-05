@@ -79,7 +79,7 @@ export default (easyConfig: Object): Object => {
 
         loaders.push({
           test: new RegExp(
-            `\.${ ext.indexOf("|") > -1 ? `(${ ext })` : ext }$`
+            `\\.${ ext.indexOf("|") > -1 ? `(${ ext })` : ext }$`
           ),
           loader,
           // for later usage
